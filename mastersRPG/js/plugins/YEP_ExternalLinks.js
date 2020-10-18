@@ -81,6 +81,7 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
     Yanfly.LINK.Game_Interpreter_pluginCommand.call(this, command, args)
     if (command === 'OpenNewTab') this.openNewTab(args);
 		if (command === 'OpenNewWindow') this.openNewWindow(args);
+		if (command === 'appendChild') this.appendChild(args);
 };
 
 Game_Interpreter.prototype.openNewTab = function(args) {
@@ -105,6 +106,18 @@ Game_Interpreter.prototype.openNewWindow = function(args) {
 	} else {
 		SceneManager.openPopupBlockerMessage();
 	}
+};
+
+Game_Interpreter.prototype.appendChild = function(args) {
+	TouchInput.clear();
+	Input.clear();
+	
+	document.getElementById("teste").style.display = 'block';
+
+	$("#myModal").modal({
+		show: true
+	  });
+
 };
 
 //=============================================================================
